@@ -6,8 +6,8 @@ public class ej5 {
         int dot = s.indexOf('.');  // Busca la posición del punto decimal.
 
         // Imprime la cantidad de dígitos antes del punto decimal.
-        System.out.println(dot + " digits before decimal point."); //seria "3"
+        System.out.println(dot + " digitos antes del punto decimal."); //seria "3"
         // Imprime la cantidad de dígitos después del punto decimal.
-        System.out.println( (s.length() - dot - 1) + " digits after decimal point."); // sería 2
+        System.out.println( (s.length() - dot - 1) + " digitos despues del punto decimal."); // sería 2
     }
 }
