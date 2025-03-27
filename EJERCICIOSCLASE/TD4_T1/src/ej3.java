@@ -4,7 +4,7 @@ public class ej3 {
         public int anInt;
         public float aFloat;
 
-        /*creamos el constructos*/
+        /*creamos el constructor*/
     public NumberHolder(int anInt, float aFloat) {
         this.anInt = anInt;
         this.aFloat = aFloat;

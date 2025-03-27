@@ -1,5 +1,4 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
 public class Ejercicio3_TD1 {
     public static void main(String[] args) {
         multsuma(1.0, 2.0, 3.0); /*le pasamos los datos que vamos a utilizar*/

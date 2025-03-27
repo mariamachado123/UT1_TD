@@ -1,43 +1,91 @@
+import java.io.*;
+import java.util.*;
+
 public class ContadorPalabras {
 
-    String[]arreglo1;
-    String[]arreglo2;
+    public static String[] palabrasComunes(String[] palabras1, String[] palabras2) {
+        Set<String> conjuntoPalabras1 = new HashSet<>(Arrays.asList(palabras1));
+        List<String> resultado = new ArrayList<>();
 
-    public ContadorPalabras(String[] arreglo1, String[] arreglo2) {
-        this.arreglo1=arreglo1;
-        this.arreglo2=arreglo2;
+        for (String palabra : palabras2) {
+            if (conjuntoPalabras1.contains(palabra)) {
+                resultado.add(palabra);
+            }
+        }
+        return resultado.toArray(new String[0]);
     }
-    public void palabrasComunes() {
-        if(arreglo1.length==arreglo2.length) {
-            for (int i = 0; i < arreglo1.length; i++) {
-                for (int j = 0; j < arreglo2.length; j++) {
-                    /*Comparamos si las palabaras son iguales, si es asi, se imprime*/
-                    if (arreglo2[i].equals(arreglo1[i])) {
-                        System.out.println(arreglo1[i]);
-                    }
-                }
 
+    public class LeerArchivo {
+
+        public void leerArchivo(String nombreCompletoArchivo) {
+            try {
+                FileReader fr = new FileReader(nombreCompletoArchivo);
+                BufferedReader br = new BufferedReader(fr);
+
+                for (String lineaActual = br.readLine(); lineaActual != null; lineaActual = br.readLine()) {
+                    System.out.println(lineaActual);
+                }
+            } catch (FileNotFoundException e) {
+                System.out.println("Error al leer el archivo " + nombreCompletoArchivo);
+                e.printStackTrace();
+            } catch (IOException e) {
+                System.out.println("Error al leer el archivo " + nombreCompletoArchivo);
+                e.printStackTrace();
             }
 
+            System.out.println("Archivo leído satisfactoriamente");
         }
-        if(arreglo2.length>arreglo1.length) {
-            /*Al ser el arreglo 2 mas largo, es el primero que usaremos en el bucle for, para que se vean todas las palabras*/
-            for (int i = 0; i < arreglo2.length; i++) {
-                for (int j = 0; j < arreglo1.length; j++) {
-                    if (arreglo2[i].equals(arreglo1[j])) {
-                        System.out.println(arreglo2[i]);
-                    }
+
+        public String[] obtenerLineas(String archivo) {
+            List<String> lineas = new ArrayList<>();
+
+            try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+                String linea;
+                while ((linea = br.readLine()) != null) {
+                    lineas.add(linea);
                 }
+            } catch (IOException e) {
+                System.out.println("Error al leer el archivo " + archivo);
+                e.printStackTrace();
             }
+
+            return lineas.toArray(new String[0]);
         }
-        else{
-            for (int i = 0; i < arreglo1.length; i++) {
-                for (int j = 0; j < arreglo2.length; j++) {
-                    if (arreglo2[i].equals(arreglo1[j])) {
-                        System.out.println(arreglo2[i]);
-                    }
-                }
-            }
+    }
+
+    public static void main(String[] args) {
+        // Crear la instancia de la clase ContadorPalabras
+        ContadorPalabras contadorPalabras = new ContadorPalabras();
+
+        ContadorPalabras.LeerArchivo lector = contadorPalabras.new LeerArchivo();
+
+        String archivo = "C:\\Users\\Estudiante UCU\\Downloads\\informatica.txt";
+
+        String[] lineas = lector.obtenerLineas(archivo);
+        System.out.println("\nLíneas obtenidas del archivo:");
+
+        // Verificar que el archivo tiene al menos dos líneas
+        if (lineas.length < 2) {
+            System.out.println("El archivo debe contener al menos dos líneas.");
+            return;
         }
+
+        for (int i = 0; i < lineas.length; i++) {
+            System.out.println("Línea " + (i + 1) + ": " + lineas[i]);
+        }
+
+        Random random = new Random();
+        int i1 = random.nextInt(lineas.length);
+        int i2;
+        do {
+            i2 = random.nextInt(lineas.length);
+        } while (i1 == i2); // Asegurar que no se seleccionen las mismas líneas
+
+        String[] palabras1 = lineas[i1].split("\\s+");
+        String[] palabras2 = lineas[i2].split("\\s+");
+        
+        String[] resultado = palabrasComunes(palabras1, palabras2);
+
+        System.out.println("Palabras comunes: " + Arrays.toString(resultado));
     }
 }

@@ -1,8 +1,5 @@
 public class ej4 {
     public static void main(String[] args) {
-        // this program requires two
-        // arguments on the command line
-
 
         if (args.length == 2) {
             // convert strings to numbers
