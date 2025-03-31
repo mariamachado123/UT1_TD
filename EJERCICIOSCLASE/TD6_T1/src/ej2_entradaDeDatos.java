@@ -52,7 +52,7 @@ public class ej2_entradaDeDatos {
     }
     public static void main(String[] args) {
         // Ruta del archivo
-        String nombreArchivo = "C:\\Users\\Estudiante UCU\\OneDrive - Universidad Católica del Uruguay\\SEGUNDO AÑO\\PRIMER SEMESTRE\\ALGORITMOS\\archivo.txt";
+        String nombreArchivo = "TD6_T1/src/archivo.txt";
         leerEntradaArchivo(nombreArchivo);
     }
 }
