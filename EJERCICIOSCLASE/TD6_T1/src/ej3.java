@@ -9,7 +9,7 @@ public class ej3 {
         String[] elementos = new String[1];
         int i = 0;
         try {
-            br = new BufferedReader(new FileReader("C:\\Users\\Estudiante UCU\\Downloads\\radio.txt"));
+            br = new BufferedReader(new FileReader("TD6_T1/src/radio.txt"));
             String linea;
 
             /* Leer las tres líneas*/

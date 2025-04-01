@@ -10,18 +10,17 @@ import java.io.IOException;
 
 public class Principal {
 
-    /**
-     * *** PARTE A ****
+    /*PARTE A
      */
     public static void transformarTextoT9(String rutaArchivo) throws FileNotFoundException, IOException {
         String letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz .";
         String numeros = "222333444555666777788899992223334445556667777888999001";
 
-        File archivo = new File(rutaArchivo + "TD10_T1/src/paquete/entrada.txt");
+        File archivo = new File(rutaArchivo + "TD10_T1/src/entrada.txt");
 
         FileReader fr = new FileReader(archivo);
         BufferedReader br = new BufferedReader(fr);
-        BufferedWriter bw = new BufferedWriter(new FileWriter(rutaArchivo + "TD10_T1/src/paquete/salida.txt"));
+        BufferedWriter bw = new BufferedWriter(new FileWriter(rutaArchivo + "TD10_T1/src/salida.txt"));
 
         int caracteres;
         while ((caracteres = br.read()) != -1) {
@@ -42,17 +41,16 @@ public class Principal {
 
     }
 
-    /**
-     * *** PARTE B ****
+    /*PARTE B
      */
     public static void transformarT9Texto(String rutaArchivo) throws FileNotFoundException, IOException {
         String letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz .";
         String numeros = "222333444555666777788899992223334445556667777888999001";
 
-        File archivo = new File(rutaArchivo + "TD10_T1/src/paquete/entrada.txt");
+        File archivo = new File(rutaArchivo + "TD10_T1/src/entrada.txt");
         FileReader fr = new FileReader(archivo);
         BufferedReader br = new BufferedReader(fr);
-        BufferedWriter bw = new BufferedWriter(new FileWriter(rutaArchivo + "TD10_T1/src/paquete/salida.txt"));
+        BufferedWriter bw = new BufferedWriter(new FileWriter(rutaArchivo + "TD10_T1/src/salida.txt"));
 
         StringBuilder contenido = new StringBuilder();
         int caracter;
@@ -79,7 +77,6 @@ public class Principal {
 
     public static void main(String[] args) throws IOException {
         Principal principal = new Principal();
-        //principal.transformarTextoT9("C:\\Users\\Estudiante UCU\\OneDrive - Universidad Católica del Uruguay\\Documentos\\NetBeansProjects\\UT1_PD6_Ej3\\src\\paquete");
         principal.transformarT9Texto("TD10_T1/src/paquete");
     }
 
